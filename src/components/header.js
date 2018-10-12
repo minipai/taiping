@@ -10,7 +10,7 @@ const MENU = [
   ['商家', '/stores'],
   ['住宿', '/stays'],
   ['地方特色', '/uniques'],
-  ['文環夜學', '/'],
+  ['文環夜學', '/artist'],
 ]
 
 const query = graphql`
