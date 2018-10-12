@@ -11,8 +11,9 @@ const attractionTemplate = path.resolve(`src/templates/attraction.js`)
 const tourTemplate = path.resolve(`src/templates/tour.js`)
 const storeTemplate = path.resolve(`src/templates/store.js`)
 const stayTemplate = path.resolve(`src/templates/stay.js`)
+const uniqueTemplate = path.resolve(`src/templates/unique.js`)
 
-const doctypes = ['Attraction', 'Tour', 'Store', 'Stay']
+const doctypes = ['Attraction', 'Tour', 'Store', 'Stay', 'Unique']
 
 const query = `{
   ${doctypes
@@ -68,6 +69,13 @@ exports.createPages = ({ graphql, actions }) => {
         )
         result.data.allPrismicStay.edges.forEach(
           createPageFromEdge('stays', stayTemplate)
+        )
+        console.log(
+          'result.data.allPrismicUnique: ',
+          result.data.allPrismicUnique
+        )
+        result.data.allPrismicUnique.edges.forEach(
+          createPageFromEdge('uniques', uniqueTemplate)
         )
 
         return
