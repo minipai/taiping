@@ -9,34 +9,33 @@ const path = require('path')
 const _ = require('lodash')
 const attractionTemplate = path.resolve(`src/templates/attraction.js`)
 const tourTemplate = path.resolve(`src/templates/tour.js`)
+const storeTemplate = path.resolve(`src/templates/store.js`)
 
+const doctypes = ['Attraction', 'Tour', 'Store']
+
+const query = `{
+  ${doctypes
+    .map(
+      doctype => `
+        allPrismic${doctype} {
+          edges {
+            node {
+              id
+              slugs
+            }
+          }
+        }
+      `
+    )
+    .join('')}
+}
+`
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
     // Query for markdown nodes to use in creating pages.
     resolve(
-      graphql(
-        `
-          {
-            allPrismicAttraction {
-              edges {
-                node {
-                  id
-                  slugs
-                }
-              }
-            }
-            allPrismicTour {
-              edges {
-                node {
-                  id
-                  slugs
-                }
-              }
-            }
-          }
-        `
-      ).then(result => {
+      graphql(query).then(result => {
         if (result.errors) {
           reject(result.errors)
         }
@@ -62,6 +61,9 @@ exports.createPages = ({ graphql, actions }) => {
         )
         result.data.allPrismicTour.edges.forEach(
           createPageFromEdge('tours', tourTemplate)
+        )
+        result.data.allPrismicStore.edges.forEach(
+          createPageFromEdge('stores', storeTemplate)
         )
 
         return

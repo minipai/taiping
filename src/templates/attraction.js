@@ -1,5 +1,6 @@
 import React from 'react'
 import { last } from 'lodash'
+import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Post from '../components/post'
 import Postside from '../components/postside'

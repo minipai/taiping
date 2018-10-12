@@ -5,11 +5,11 @@ import Layout from '../components/layout'
 import Post from '../components/post'
 import Postside from '../components/postside'
 import Pagetitle from '../components/pagetitle'
-import { buildTours } from '../pages/tours'
+import { buildStores } from '../pages/stores'
 
 export const query = graphql`
   query($id: String!) {
-    prismicTour(id: { eq: $id }) {
+    prismicStore(id: { eq: $id }) {
       data {
         title {
           html
@@ -26,7 +26,7 @@ export const query = graphql`
         }
       }
     }
-    allPrismicTour {
+    allPrismicStore {
       edges {
         node {
           id
@@ -52,8 +52,8 @@ export const query = graphql`
 `
 
 const PostPage = props => {
-  const post = props.data.prismicTour.data
-  const tours = buildTours(props.data.allPrismicTour)
+  const post = props.data.prismicStore.data
+  const stores = buildStores(props.data.allPrismicStore)
   return (
     <Layout
       className="layout2"
@@ -73,12 +73,12 @@ const PostPage = props => {
           <div className="widget">
             <h4 className="mb-0">景點介紹</h4>
             <ul>
-              {tours.map(a => (
+              {stores.map(a => (
                 <li>
                   <Postside
                     title={a.title.text}
                     photo={a.photo.s60.url}
-                    link={`/tours/${last(a.id.split('__'))}`}
+                    link={`/stores/${last(a.id.split('__'))}`}
                   />
                 </li>
               ))}

@@ -7,7 +7,7 @@ import Image from './image'
 const MENU = [
   ['景點', '/attractions'],
   ['遊程', '/tours'],
-  ['商家', '/'],
+  ['商家', '/stores'],
   ['住宿', '/'],
   ['地方特色', '/'],
   ['文環夜學', '/'],
