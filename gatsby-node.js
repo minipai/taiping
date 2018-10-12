@@ -7,17 +7,26 @@
 // You can delete this file if you're not using it
 const path = require('path')
 const _ = require('lodash')
+const attractionTemplate = path.resolve(`src/templates/attraction.js`)
+const tourTemplate = path.resolve(`src/templates/tour.js`)
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   return new Promise((resolve, reject) => {
-    const postTemplate = path.resolve(`src/templates/attraction.js`)
     // Query for markdown nodes to use in creating pages.
     resolve(
       graphql(
         `
           {
             allPrismicAttraction {
+              edges {
+                node {
+                  id
+                  slugs
+                }
+              }
+            }
+            allPrismicTour {
               edges {
                 node {
                   id
@@ -32,12 +41,11 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors)
         }
 
-        console.log('result.data: ', result)
-        result.data.allPrismicAttraction.edges.forEach(edge => {
+        const createPageFromEdge = (path, template) => edge => {
           const shortId = _.last(edge.node.id.split('__'))
           createPage({
-            path: `attractions/${shortId}`, // required
-            component: postTemplate,
+            path: `${path}/${shortId}`, // required
+            component: template,
             context: {
               // Add optional context data. Data can be used as
               // arguments to the page GraphQL query.
@@ -47,7 +55,14 @@ exports.createPages = ({ graphql, actions }) => {
               id: edge.node.id,
             },
           })
-        })
+        }
+
+        result.data.allPrismicAttraction.edges.forEach(
+          createPageFromEdge('attractions', attractionTemplate)
+        )
+        result.data.allPrismicTour.edges.forEach(
+          createPageFromEdge('tours', tourTemplate)
+        )
 
         return
       })
