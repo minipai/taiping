@@ -53,7 +53,7 @@ const Uniques = props => {
     <Layout
       className="layout2"
       topComponent={
-        <Pagetitle title="景點介紹" description={description.html} />
+        <Pagetitle title="地方特色" description={description.html} />
       }
     >
       <section className="blog-content blog-grid no-sidebar">

@@ -53,7 +53,7 @@ const Stays = props => {
     <Layout
       className="layout2"
       topComponent={
-        <Pagetitle title="旅遊行程" description={description.html} />
+        <Pagetitle title="住宿資訊" description={description.html} />
       }
     >
       <section className="blog-content blog-grid no-sidebar">
