@@ -10,8 +10,9 @@ const _ = require('lodash')
 const attractionTemplate = path.resolve(`src/templates/attraction.js`)
 const tourTemplate = path.resolve(`src/templates/tour.js`)
 const storeTemplate = path.resolve(`src/templates/store.js`)
+const stayTemplate = path.resolve(`src/templates/stay.js`)
 
-const doctypes = ['Attraction', 'Tour', 'Store']
+const doctypes = ['Attraction', 'Tour', 'Store', 'Stay']
 
 const query = `{
   ${doctypes
@@ -64,6 +65,9 @@ exports.createPages = ({ graphql, actions }) => {
         )
         result.data.allPrismicStore.edges.forEach(
           createPageFromEdge('stores', storeTemplate)
+        )
+        result.data.allPrismicStay.edges.forEach(
+          createPageFromEdge('stays', stayTemplate)
         )
 
         return
