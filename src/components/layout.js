@@ -10,7 +10,7 @@ import './css/lib/hoverdir.css'
 import './css/style.css'
 
 const Layout = ({
-  children,
+  children = null,
   className,
   full,
   topComponent,
@@ -56,7 +56,7 @@ const Layout = ({
 )
 
 Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 }
 
 export default Layout

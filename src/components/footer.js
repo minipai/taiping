@@ -32,7 +32,7 @@ const Footer = ({ siteTitle }) => (
                       width="600"
                       height="350"
                       frameBorder="0"
-                      style={{ border: 0 }}
+                      style={{ border: 0, maxWidth: '100%' }}
                       allowfullscreen
                     />
                   </div>

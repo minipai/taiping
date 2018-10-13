@@ -220,6 +220,14 @@ ol li, ul li {
   position: relative;
 }
 
+.site-hero {
+  text-align: center; 
+  background: #373b29;
+}
+.site-hero > img {
+  max-width: 2560px;
+}
+
 .tb {
   display: table;
   width: 100%;

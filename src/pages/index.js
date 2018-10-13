@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
+import Image from '../components/image'
 
 export const query = graphql`
   query {
@@ -19,8 +20,8 @@ export const query = graphql`
 const IndexPage = props => {
   const heroImage = props.data.prismicHomepage.data.hero_image.url
   const Hero = (
-    <section class="blog-heading" style={{ background: `url(${heroImage})` }}>
-      <div class="container text-center" />
+    <section class="site-hero">
+      <Image src={heroImage} />
     </section>
   )
 
