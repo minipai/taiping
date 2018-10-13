@@ -5,11 +5,11 @@ import Toggle from 'react-toggled'
 import Image from './image'
 
 const MENU = [
+  ['地方特色', '/uniques'],
   ['景點', '/attractions'],
   ['遊程', '/tours'],
   ['商家', '/stores'],
   ['住宿', '/stays'],
-  ['地方特色', '/uniques'],
   ['文環夜學', '/artist'],
 ]
 

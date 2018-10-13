@@ -58,16 +58,14 @@ const Uniques = props => {
     >
       <section className="blog-content blog-grid no-sidebar">
         <div className="row content">
-          <div className="col-md-12">
-            {uniques.map(a => (
-              <Postbox
-                title={a.title.text}
-                photo={a.photo.r360.url}
-                content={truncate(a.content.text)}
-                link={`/uniques/${last(a.id.split('__'))}`}
-              />
-            ))}
-          </div>
+          {uniques.map(a => (
+            <Postbox
+              title={a.title.text}
+              photo={a.photo.r360.url}
+              content={truncate(a.content.text)}
+              link={`/uniques/${last(a.id.split('__'))}`}
+            />
+          ))}
         </div>
       </section>
     </Layout>

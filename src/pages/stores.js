@@ -58,16 +58,14 @@ const Stores = props => {
     >
       <section className="blog-content blog-grid no-sidebar">
         <div className="row content">
-          <div className="col-md-12">
-            {stores.map(a => (
-              <Postbox
-                title={a.title.text}
-                photo={a.photo.r360.url}
-                content={truncate(a.content.text)}
-                link={`/stores/${last(a.id.split('__'))}`}
-              />
-            ))}
-          </div>
+          {stores.map(a => (
+            <Postbox
+              title={a.title.text}
+              photo={a.photo.r360.url}
+              content={truncate(a.content.text)}
+              link={`/stores/${last(a.id.split('__'))}`}
+            />
+          ))}
         </div>
       </section>
     </Layout>

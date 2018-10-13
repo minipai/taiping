@@ -58,16 +58,14 @@ const Stays = props => {
     >
       <section className="blog-content blog-grid no-sidebar">
         <div className="row content">
-          <div className="col-md-12">
-            {stays.map(a => (
-              <Postbox
-                title={a.title.text}
-                photo={a.photo.r360.url}
-                content={truncate(a.content.text)}
-                link={`/stays/${last(a.id.split('__'))}`}
-              />
-            ))}
-          </div>
+          {stays.map(a => (
+            <Postbox
+              title={a.title.text}
+              photo={a.photo.r360.url}
+              content={truncate(a.content.text)}
+              link={`/stays/${last(a.id.split('__'))}`}
+            />
+          ))}
         </div>
       </section>
     </Layout>
