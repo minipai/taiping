@@ -24,13 +24,11 @@ export const query = graphql`
               html
               text
             }
-            photo {
+            image {
               alt
               copyright
               url
-              r360 {
-                url
-              }
+  
             }
             content {
               html
@@ -61,7 +59,7 @@ const Artists = props => {
           {artists.map(a => (
             <Postbox
               title={a.title.text}
-              photo={a.photo.r360.url}
+              photo={a.image.url}
               content={truncate(a.content.text)}
               link={`/artist/${last(a.id.split('__'))}`}
             />

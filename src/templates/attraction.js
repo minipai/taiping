@@ -54,7 +54,7 @@ export const query = graphql`
 const PostPage = props => {
   const post = props.data.prismicAttraction.data
   const attractions = buildAttractions(props.data.allPrismicAttraction)
-  console.log('attractions: ', attractions)
+
   return (
     <Layout
       className="layout2"

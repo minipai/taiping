@@ -9,7 +9,6 @@ export const query = graphql`
     prismicHomepage {
       data {
         hero_image {
-          alt
           url
         }
       }
@@ -18,10 +17,10 @@ export const query = graphql`
 `
 
 const IndexPage = props => {
-  const heroImage = props.data.prismicHomepage.data.hero_image.url
+const heroImage = props.data.prismicHomepage.data.hero_image.url
   const Hero = (
     <section class="site-hero">
-      <Image src={heroImage} />
+      <Image src={heroImage} alt="" />
     </section>
   )
 

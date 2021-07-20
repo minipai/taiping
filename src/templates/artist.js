@@ -15,7 +15,7 @@ export const query = graphql`
           html
           text
         }
-        photo {
+        image {
           alt
           copyright
           url
@@ -34,12 +34,10 @@ export const query = graphql`
             title {
               text
             }
-            photo {
+            image {
               alt
               url
-              s60 {
-                url
-              }
+
             }
             content {
               text
@@ -64,7 +62,7 @@ const PostPage = props => {
           <div className="blog-content">
             <Post
               title={post.title.text}
-              photo={post.photo.url}
+              photo={post.image.url}
               content={post.content.html}
             />
           </div>
@@ -77,7 +75,7 @@ const PostPage = props => {
                 <li>
                   <Postside
                     title={a.title.text}
-                    photo={a.photo.s60.url}
+                    photo={a.image.url}
                     link={`/artist/${last(a.id.split('__'))}`}
                   />
                 </li>
