@@ -16,8 +16,6 @@ export const query = graphql`
           text
         }
         image {
-          alt
-          copyright
           url
         }
         content {
@@ -35,7 +33,6 @@ export const query = graphql`
               text
             }
             image {
-              alt
               url
 
             }

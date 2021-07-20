@@ -25,10 +25,7 @@ export const query = graphql`
               text
             }
             image {
-              alt
-              copyright
               url
-  
             }
             content {
               html
