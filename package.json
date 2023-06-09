@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "gatsby": "^2.0.19",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-manifest": "^2.0.20-asset-prefix.74",
     "gatsby-plugin-offline": "^2.2.10",
